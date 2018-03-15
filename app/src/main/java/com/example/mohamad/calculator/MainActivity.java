@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private Button Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Clear,Multiply,Divide,Minus,
-            Plus,Equal,Double,Percent,PlusOrMinus;
+            Plus,Equal,Double,Percent;
     private TextView Display;
     static String expression = "";
     Calculator calculator;
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         Double = (Button) findViewById(R.id.DotButton);
         Equal = (Button) findViewById(R.id.EqualButton);
         Percent = (Button) findViewById(R.id.PercentButton);
-        PlusOrMinus = (Button) findViewById(R.id.PAMButton);
         Display = (TextView) findViewById(R.id.TextView);
 
         calculator = new Calculator();
@@ -185,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         Double.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                concatenateDOT();
+                concatenateSign(".");
 
             }
         });
@@ -196,31 +195,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        PlusOrMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                concatenatePlusOrMinus();
-
-            }
-        });
         Percent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Percentage();
+                concatenateSign("%");
             }
         });
 
 
-    }
-
-    private void concatenatePlusOrMinus(){
-        calculator.concatenatePlusOrMinus();
-        updateUI();
-    }
-
-    private void Percentage() {
-        calculator.Percentage();
-        updateUI();
     }
 
     private void evaluate() {
@@ -228,10 +210,6 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
 
-    private void concatenateDOT() {
-        calculator.concatenateDOT();
-        updateUI();
-    }
 
     private void concatenateSign(String operator) {
         calculator.concatenateSign(operator);

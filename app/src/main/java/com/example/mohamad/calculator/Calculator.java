@@ -1,6 +1,5 @@
 package com.example.mohamad.calculator;
 
-
 import org.javia.arity.Symbols;
 import org.javia.arity.SyntaxException;
 
@@ -10,6 +9,10 @@ class Calculator {
     public Calculator() {
         symbols = new Symbols();}
 
+/**
+ * check expression if it ends with a sign
+ * @param 'expression'
+ */
     public boolean expressionCheck(String expression) {
         if   (expression.endsWith(".") || expression.endsWith("*") || expression.endsWith("+") ||
                 expression.endsWith("-") || expression.endsWith("/")
@@ -21,40 +24,30 @@ class Calculator {
             return true;
         }
     }
-
-
+    /**
+     * concatenate numbers with the expression
+     * @param 'number'
+     */
     public void concatenateNumber(String number) {
             MainActivity.expression += number;
     }
+    /**
+     * if the expression passes expressionCheck then
+     * add a sign to the expression
+     * '@param 'Sign'
+     */
 
-
-    public void concatenateSign(String operator) {
+    public void concatenateSign(String Sign) {
         if (expressionCheck( MainActivity.expression)) {
-            MainActivity.expression += operator;
+            MainActivity.expression += Sign;
         }
     }
 
-
-    public void Percentage() {
-        if (expressionCheck( MainActivity.expression)) {
-            MainActivity.expression += "%";
-        }
-    }
-      public void concatenatePlusOrMinus(){
-        if (expressionCheck( MainActivity.expression)) {
-            MainActivity.expression += "±";
-        }
-
-    }
-
-    public void concatenateDOT() {
-        if (expressionCheck( MainActivity.expression)) {
-            MainActivity.expression += ".";
-        }
-    }
-
-
-
+    /**
+     * if the expression passes expressionCheck then
+     * use 'symbols' to evaluate the expression
+     * and save the result in 'expression'
+     */
     public void evaluate() {
         if (expressionCheck( MainActivity.expression)) {
             try {
