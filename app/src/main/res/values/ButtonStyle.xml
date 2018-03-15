@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ButtonPad" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_color</item>
+        <item name="android:textColor">@color/fontColor</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:buttonStyle">@style/Base.Widget.AppCompat.Button.Borderless</item>
+    </style>
+</resources>
